@@ -101,6 +101,18 @@ export default function CustomInput(props: any) {
     rtlActive,
   } = props;
 
+  // const {
+  //   labelText,
+  //   id,
+  //   inputProps,
+  //   formControlProps,
+  //   error,
+  //   success,
+  //   rtlActive,
+  //   value,
+  //   onChange
+  // } = props;
+
   const labelClasses = classNames({
     [" " + classes.labelRootError]: error,
     [" " + classes.labelRootSuccess]: success && !error,
@@ -141,6 +153,8 @@ export default function CustomInput(props: any) {
           disabled: classes.disabled,
           underline: underlineClasses,
         }}
+        // value={value}
+        // onChange={onChange}
         id={id}
         {...inputProps}
         inputProps={newInputProps}
@@ -163,4 +177,18 @@ CustomInput.propTypes = {
   error: PropTypes.bool,
   success: PropTypes.bool,
   rtlActive: PropTypes.bool,
+  value: PropTypes.string
 };
+
+interface Props {
+  labelText?: React.ReactNode
+  labelProps?: object
+  id?: string
+  inputProps?: object
+  formControlProps?: object
+  error?: boolean
+  success?: boolean
+  rtlActive?: boolean
+  value: string
+  onChange: Function
+}

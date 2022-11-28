@@ -7,6 +7,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import App from '../src/feature/auth/LoginScreen';
 import reportWebVitals from './reportWebVitals';
 import theme from '../src/assets/theme/theme';
+import { GlobalContextProvider } from '../src/feature/auth/GlobalScopeProvider';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -17,8 +18,11 @@ root.render(
   // </React.StrictMode>
   <ThemeProvider theme={theme}>
     {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-    <CssBaseline />
-    <App />
+    <GlobalContextProvider>
+      <CssBaseline />
+      <App />
+    </GlobalContextProvider>
+
   </ThemeProvider>,
 );
 

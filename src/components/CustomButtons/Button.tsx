@@ -365,6 +365,7 @@ export default function RegularButton(props: Props)  {
     justIcon,
     className,
     muiClasses,
+    onClickButton,
     ...rest
   } = props;
   const btnClasses = classNames({
@@ -380,7 +381,7 @@ export default function RegularButton(props: Props)  {
     [className]: className,
   });
   return (
-    <Button {...rest} classes={muiClasses} className={btnClasses}>
+    <Button {...rest} classes={muiClasses} className={btnClasses} onClick={() => {onClickButton()}}>
       {children}
     </Button>
   );
@@ -421,5 +422,6 @@ interface Props {
   justIcon?: boolean
   className: string
   muiClasses?: object
-  children?: React.ReactNode
+  children?: React.ReactNode,
+  onClickButton: Function
 }
